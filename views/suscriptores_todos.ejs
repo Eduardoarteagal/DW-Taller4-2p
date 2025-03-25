@@ -1,0 +1,31 @@
+<%- include('partials/_header') %>
+
+<h1>Todos los Suscriptores</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Fecha de Registro</th>
+      <th>Intereses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% suscriptores.forEach(suscriptor => { %>
+      <tr>
+        <td><%= suscriptor.nombre %></td>
+        <td><%= suscriptor.email %></td>
+        <td><%= suscriptor.fecha_registro.toLocaleDateString() %></td>
+        <td>
+          <ul>
+            <% suscriptor.intereses.forEach(interes => { %>
+              <li><%= interes.descripcion %></li>
+            <% }); %>
+          </ul>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<%- include('partials/_footer') %>

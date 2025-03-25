@@ -1,0 +1,18 @@
+<%- include('partials/_header') %>
+
+<h1>Suscriptor por ID</h1>
+<% if (suscriptor) { %>
+  <p><strong>Nombre:</strong> <%= suscriptor.nombre %></p>
+  <p><strong>Email:</strong> <%= suscriptor.email %></p>
+  <p><strong>Fecha de Registro:</strong> <%= suscriptor.fecha_registro.toLocaleDateString() %></p>
+  <p><strong>Intereses:</strong></p>
+  <ul>
+    <% suscriptor.intereses.forEach(interes => { %>
+      <li><%= interes.descripcion %></li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>Suscriptor no encontrado.</p>
+<% } %>
+
+<%- include('partials/_footer') %>
